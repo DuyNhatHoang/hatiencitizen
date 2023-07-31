@@ -1,0 +1,270 @@
+{
+  "goodMorning": "Good morning",
+  "@goodMorning": {
+  },
+  "goodNoon": "Good afternoon",
+  "@goodNoon": {
+  },
+  "goodAfternoon": "Good afternoon",
+  "@goodAfternoon": {
+  },
+  "goodEvening": "Good evening",
+  "@goodEvening": {
+  },
+  "homepage": "Home",
+  "@homepage": {
+  },
+  "postedEvent": "Posted event",
+  "@postedEvent": {
+  },
+  "received": "Received",
+  "@received": {
+  },
+  "account": "Account",
+  "@account": {
+  },
+  "waiting": "Waiting",
+  "@waiting": {
+  },
+  "work": "Work",
+  "@work": {
+  },
+  "error": "Error",
+  "@error": {
+  },
+  "nodata": "No data available",
+  "@nodata": {
+  },
+  "content": "Content",
+  "@content": {
+  },
+  "distance": "Distance",
+  "@distance": {
+  },
+  "place": "Place",
+  "@place": {
+  },
+  "processWait": "Processing wait",
+  "@processWait": {
+  },
+  "processing": "Processing",
+  "@processing": {
+  },
+  "doneRequest": "Request completed",
+  "@doneRequest": {
+  },
+  "done": "Done",
+  "@done": {
+  },
+  "gallery": "Gallery",
+  "@gallery": {
+  },
+  "changePassSuccess": "Password changed successfully",
+  "@changePassSuccess": {
+  },
+  "updateSuccess": "Update successful",
+  "@updateSuccess": {
+  },
+  "updateInfo": "Update information",
+  "@updateInfo": {
+  },
+  "changePass": "Change password",
+  "@changePass": {
+  },
+  "testResult": "Test result",
+  "@testResult": {
+  },
+
+  "username": "Username",
+  "@username": {
+  },
+  "fullname": "Full name",
+  "@fullname": {
+  },
+  "password": "Password",
+  "@password": {
+  },
+  "notify": "Notification",
+  "@notify": {
+  },
+
+  "title": "Title",
+  "@title": {
+  },
+
+  "description": "Description",
+  "@description": {
+  },
+  "category": "Category",
+  "@category": {
+  },
+  "menuInfo": "Information - Announcement",
+  "@menuInfo": {
+  },
+  "menuRequest": "Feedback - Suggestion",
+  "@menuRequest": {
+  },
+  "otherService": "Other Services",
+  "@otherService": {
+  },
+  "medical": "Medical",
+  "@medical": {
+  },
+  "loginFailed": "Incorrect username or password",
+  "@loginFailed": {
+  },
+  "forgetPass": "Forgot password",
+  "@forgetPass": {
+  },
+  "login": "Login",
+  "@login": {
+  },
+  "register": "Register",
+  "@register": {
+  },
+
+  "inputname": "Enter your username:",
+  "@inputname": {
+  },
+  "detailed": "Detailed",
+  "@detailed": {
+  },
+  "choose": "Choose",
+  "@choose": {
+  },
+  "eventPlace": "Event Location",
+  "@eventPlace": {
+  },
+  "urgentCall": "Urgent call",
+  "@urgentCall": {
+  },
+  "handlingOfficer": "Handling officer",
+  "@handlingOfficer": {
+  },
+  "chooseEventType": "Choose event type",
+  "@chooseEventType": {
+  },
+  "eventLocation": "Event location",
+  "@eventLocation": {
+  },
+  "eventContent": "Input event content ",
+  "@eventContent": {
+  },
+  "createEvent": "Create event",
+  "@createEvent": {
+  },
+  "at": "At",
+  "@at": {
+  },
+  "moving": "Moving",
+  "@moving": {
+  },
+  "arrived": "arrived",
+  "@arrived": {
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+  },
+  "posted": "Đăng bởi",
+  "@posted": {
+  },
+  "eventHistory": "Event History",
+  "@eventHistory": {
+  },
+  "logout": "Log out",
+  "@logout": {
+  },
+  "register": "Register",
+  "@register": {
+  },
+  "confirmPass": "Confirm Password",
+  "@confirmPass": {
+  },
+  "phoneNumber": "Phone Number",
+  "@phoneNumber": {
+  },
+  "registerConfirm": "Confirm Register",
+  "@registerConfirm": {
+  },
+  "forgetPass": "Forget Password",
+  "@forgetPass": {
+  },
+  "changePassTitle": "Please Reset Your Password",
+  "@changePassTitle": {
+  },
+  "changePassSubTitle": "The new password must different from last 3 password",
+  "@changePassSubTitle": {
+  },
+  "update": "Update",
+  "@update": {
+  },
+  "fillAllInfo": "Please fill all the information",
+  "@fillAllInfo": {
+  },
+  "confirmPassCheck": "The confirm password not match the password",
+  "@confirmPassCheck": {
+  },
+  "attachedFile": "Attached File",
+  "@attachedFile": {
+  },
+  "registerSuccess": "Register Successfull",
+  "@registerSuccess": {
+  },
+  "accountExisted": "Account Existed",
+  "@accountExisted": {
+  },
+  "incorrectInfo": "Information not correct",
+  "@incorrectInfo": {
+  },
+  "wrongUserName": "Invalid login name",
+  "@wrongUserName": {
+  },
+  "emptyName": "Name can not be empty",
+  "@emptyName": {
+  },
+  "passLong": "Password must have more than 6 characters",
+  "@passLong": {
+  },
+  "getOTP": "Input your phone number to get OTP.",
+  "@getOTP": {
+  },
+  "inputPhoneNumber": "Input Phone Number",
+  "@inputPhoneNumber": {
+  },
+  "phoneCheck": "Phone number must have 10 numbers",
+  "@phoneCheck": {
+  },
+  "validate": "Validate",
+  "@validate": {
+  },
+  "codeSendToNumber": "Input the code send to the phone number",
+  "@codeSendToNumber": {
+  },
+  "codeConfirm": "Please enter all 6 numbers",
+  "@codeConfirm": {
+  },
+  "notRecieveOTP": "Did not receive the code?",
+  "@notRecieveOTP": {
+  },
+  "validateSuccess": "Validate Successful",
+  "@validateSuccess": {
+  },
+  "validatePhoneNumber": "Validate Phone Number",
+  "@validatePhoneNumber": {
+  },
+  "sendCodeToNumber": "Input the code send to phone number: ",
+  "@sendCodeToNumber": {
+  },
+  "otpExpired": "OTP expired in? ",
+  "@otpExpired": {
+  },
+  "resend": "Resend ",
+  "@resend": {
+  },
+  "accountValidate": "Account Validation ",
+  "@accountValidate": {
+  },
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+  }
+}

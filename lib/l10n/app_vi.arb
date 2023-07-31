@@ -1,0 +1,269 @@
+{
+  "goodMorning": "Chào buổi sáng",
+  "@goodMorning": {
+  },
+  "goodNoon": "Chào buổi trưa",
+  "@goodNoon": {
+  },
+  "goodAfternoon": "Chào buổi chiều",
+  "@goodAfternoon": {
+  },
+  "goodEvening": "Chào buổi tối",
+  "@goodEvening": {
+  },
+  "homepage": "Trang chủ",
+  "@homepage": {
+  },
+  "postedEvent": "SK đã đăng",
+  "@postedEvent": {
+  },
+  "posted": "Đăng bởi",
+  "@posted": {
+  },
+  "received": "Đã tiếp nhận",
+  "@received": {
+  },
+  "account": "Tài khoản",
+  "@account": {
+  },
+  "waiting": "Chờ tiếp nhận",
+  "@waiting": {
+  },
+  "work": "Công việc",
+  "@work": {
+  },
+  "error": "Lỗi",
+  "@error": {
+  },
+  "nodata": "Hiện chưa có thông tin",
+  "@nodata": {
+  },
+  "content": "Nội dung",
+  "@content": {
+  },
+  "distance": "Khoảng cách",
+  "@distance": {
+  },
+  "place": "Địa điểm",
+  "@place": {
+  },
+  "processWait": "Chờ xử lý",
+  "@processWait": {
+  },
+  "processing": "Đang xử lý",
+  "@processing": {
+  },
+  "doneRequest": "Y/c hoàn thành",
+  "@doneRequest": {
+  },
+  "done": "Dã hoàn thành",
+  "@done": {
+  },
+  "gallery": "Bộ sưu tập",
+  "@gallery": {
+  },
+  "changePassSuccess": "Đổi mật khẩu thành công",
+  "@changePassSuccess": {
+  },
+  "updateSuccess": "Cập nhật thành công",
+  "@updateSuccess": {
+  },
+  "updateInfo": "Cập nhật thông tin",
+  "@updateInfo": {
+  },
+  "changePass": "Đổi mật khẩu",
+  "@changePass": {
+  },
+  "testResult": "Kết quả xét nghiệm",
+  "@testResult": {
+  },
+
+  "username": "Tên đăng nhập",
+  "@username": {
+  },
+  "fullname": "Họ tên",
+  "@fullname": {
+  },
+  "password": "Mật khẩu",
+  "@password": {
+  },
+  "notify": "Thông báo",
+  "@notify": {
+  },
+
+  "title": "Tiêu đề",
+  "@title": {
+  },
+
+  "description": "Mô tả",
+  "@description": {
+  },
+  "category": "Danh mục",
+  "@category": {
+  },
+  "menuInfo": "Thông tin - thông báo",
+  "@menuInfo": {
+  },
+  "menuRequest": "Phản ánh - kiến nghị",
+  "@menuRequest": {
+  },
+  "otherService": "Dịch vụ khác",
+  "@otherService": {
+  },
+  "medical": "Y tế",
+  "@medical": {
+  },
+  "loginFailed": "Sai tài khoản hoặc mật khấu",
+  "@loginFailed": {
+  },
+  "forgetPass": "Quên mật khẩu",
+  "@forgetPass": {
+  },
+  "login": "Đăng nhập",
+  "@login": {
+  },
+  "register": "Đăng kí",
+  "@register": {
+  },
+
+  "inputname": "Nhập vào tên đăng nhập của bạn:",
+  "@inputname": {
+  },
+  "detailed": "Chi tiết",
+  "@detailed": {
+  },
+  "choose": "Chọn",
+  "@choose": {
+  },
+  "eventPlace": "Vị trí sự kiện",
+  "@eventPlace": {
+  },
+  "urgentCall": "Điện thọại khẩn cấp",
+  "@urgentCall": {
+  },
+  "handlingOfficer": "Cán bộ xử lý",
+  "@handlingOfficer": {
+  },
+  "chooseEventType": "Chọn loại sự kiện",
+  "@chooseEventType": {
+  },
+  "eventLocation": "Vị trí sự kiện",
+  "@eventLocation": {
+  },
+  "eventContent": "Nhập nội dung thông tin sự kiện ",
+  "@eventContent": {
+  },
+  "createEvent": "Tạo sự kiện",
+  "@createEvent": {
+  },
+  "at": "Tại",
+  "@at": {
+  },
+  "arrived": "Đã đến nơi",
+  "@arrived": {
+  },
+  "cancel": "Hủy",
+  "@cancel": {
+  },
+  "eventHistory": "Lịch sử cập nhật sự kiện",
+  "@eventHistory": {
+  },
+  "logout": "Đăng xuất",
+  "@logout": {
+  },
+  "register": "Đăng kí",
+  "@register": {
+  },
+  "confirmPass": "Xác nhận mật khẩu",
+  "@confirmPass": {
+  },
+  "phoneNumber": "Số điện thoại",
+  "@phoneNumber": {
+  },
+  "registerConfirm": "Xác nhận đăng kí",
+  "@registerConfirm": {
+  },
+  "forgetPass": "Quên mật khẩu",
+  "@forgetPass": {
+  },
+  "changePassTitle": "Vui Lòng Đặt Lại Mật Khẩu Mới",
+  "@changePassTitle": {
+  },
+  "changePassSubTitle": "Tạo mật khẩu mới không trùng với 3 mật khẩu gần đây nhất",
+  "@changePassSubTitle": {
+  },
+  "update": "Cập nhật",
+  "@update": {
+  },
+  "fillAllInfo": "Vui lòng nhập đầy đủ thông tin",
+  "@fillAllInfo": {
+  },
+  "confirmPassCheck": "Nhập lại mật khẩu mới không đúng",
+  "@confirmPassCheck": {
+  },
+  "attachedFile": "Tệp đính kèm",
+  "@attachedFile": {
+  },
+  "registerSuccess": "Tạo tài khoản thành công",
+  "@registerSuccess": {
+  },
+  "accountExisted": "Tài khoản đã tồn tại",
+  "@accountExisted": {
+  },
+  "incorrectInfo": "Thông tin nhập chưa đúng",
+  "@incorrectInfo": {
+  },
+  "wrongUserName": "Tên đăng nhập không hợp lệ",
+  "@wrongUserName": {
+  },
+  "emptyName": "Tên không được trống",
+  "@emptyName": {
+  },
+  "passLong": "Mật khẩu phải lớn hơn 6 kí tự",
+  "@passLong": {
+  },
+  "getOTP": "Nhập vào số điện thoại để nhận được mã OTP.",
+  "@getOTP": {
+  },
+  "inputPhoneNumber": "Nhập số điện thoại",
+  "@inputPhoneNumber": {
+  },
+  "phoneCheck": "Số điện thoại phải đủ 10 số",
+  "@phoneCheck": {
+  },
+  "validate": "Xác thực",
+  "@validate": {
+  },
+  "codeSendToNumber": "Nhập mã code gửi qua số: ",
+  "@codeSendToNumber": {
+  },
+  "notRecieveOTP": "Không nhận được mã?",
+  "@notRecieveOTP": {
+  },
+  "codeConfirm": "Vui lòng nhập đầy đủ 6 số",
+  "@codeConfirm": {
+  },
+  "validateSuccess": "Xác thực thành công",
+  "@validateSuccess": {
+  },
+  "validatePhoneNumber": "Xác thực số điện thoại",
+  "@validatePhoneNumber": {
+  },
+  "sendCodeToNumber": "Nhập mã code gửi qua số: ",
+  "@sendCodeToNumber": {
+  },
+  "otpExpired": "Mã có hiệu lực trong? ",
+  "@otpExpired": {
+  },
+  "resend": "Gửi lại ",
+  "@resend": {
+  },
+  "accountValidate": "Xác thực tài khoản ",
+  "@accountValidate": {
+  },
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+  }
+
+
+}
