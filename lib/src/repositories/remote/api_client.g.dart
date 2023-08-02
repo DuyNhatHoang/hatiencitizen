@@ -728,7 +728,7 @@ class _ApiClient implements ApiClient {
   @override
   Future<GalleryResponse> getUserGallery(String username) async {
     final _result = await _dio.request<String>(
-      'https://uploadfile1.bakco.com.vn/?user=${username}&page=api',
+      username,
       options: RequestOptions(
           method: 'GET',
           headers: <String, dynamic>{},

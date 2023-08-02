@@ -19,9 +19,11 @@ import 'package:ha_tien_app/src/blocs/events/events_bloc.dart';
 import 'package:ha_tien_app/src/blocs/login/login_bloc.dart';
 import 'package:ha_tien_app/src/blocs/notifications/notification_bloc.dart';
 import 'package:ha_tien_app/src/repositories/local/pref/session_manager.dart';
+import 'package:ha_tien_app/src/repositories/models/Setting.dart';
 import 'package:ha_tien_app/src/repositories/models/auth/session.dart';
 import 'package:ha_tien_app/src/repositories/models/event_log/event_log.dart';
 import 'package:ha_tien_app/src/repositories/models/event_types/event_types.dart';
+import 'package:ha_tien_app/src/repositories/remote/api_client.dart';
 import 'package:ha_tien_app/src/repositories/remote/auths/auth_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/event_logs/event_logs_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/event_statuses/event_statuses_repo.dart';
@@ -635,8 +637,10 @@ class _BCSCViewState extends State<BCSCView> {
       await PH.Permission.camera.request();
     }
     print("_showChooseAttachType ${_session.userName}");
+    List<Setting> settings = await ApiClient(Dio()).getSettings("upfile-url");
+    print("${settings.first.value}/?user=${ widget.session.getSession().userName}&page=upfile");
     choosefiles.addAll(await Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => GalleryAppView(session: widget.session.getSession(),),)
+        MaterialPageRoute(builder: (context) => GalleryAppView(session: widget.session.getSession(), url: settings.first.value),)
     ));
     setState(() {
       choosefiles = choosefiles;

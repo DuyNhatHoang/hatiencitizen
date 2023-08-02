@@ -18,8 +18,9 @@ import 'gallery_item.dart';
 
 class GalleryAppView extends StatefulWidget {
   final Session session;
+  final String url;
 
-  const GalleryAppView({Key key, this.session}) : super(key: key);
+  const GalleryAppView({Key key, this.session, this.url}) : super(key: key);
 
   @override
   State<GalleryAppView> createState() => _GalleryAppViewState();
@@ -49,20 +50,19 @@ class _GalleryAppViewState extends State<GalleryAppView> {
         } else{
           await Permission.camera.request();
         }
-        List<Setting> settings = await ApiClient(Dio()).getSettings("upfile-url");
-        print("${settings.first.value}/?user=${widget.session.userName}&page=upfile");
+
         await Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => WebviewScaffold(
               // mediaPlaybackRequiresUserGesture: true,
               withJavascript: true,
               enableAppScheme: true,
-              url: "${settings.first.value}/?user=${widget.session.userName}&page=upfile",
+              url: "${widget.url}?user=${widget.session.userName}&page=upfile",
               appBar: new AppBar(
                 title: new Text(AppLocalizations.of(context).gallery),
               ),
             ),)
         );
-        BlocProvider.of<EventsBloc>(galleryContext).add(GetGalleryFiles(username: widget.session.userName));
+        BlocProvider.of<EventsBloc>(galleryContext).add(GetGalleryFiles(username: '${widget.url}?user=${widget.session.userName}&page=api'));
       },
       child: BlocProvider<EventsBloc>(
         create: (_) =>
@@ -80,7 +80,7 @@ class _GalleryAppViewState extends State<GalleryAppView> {
                         builder: (context, state) {
                           galleryContext = context;
                           if(state is EventsInitial){
-                            BlocProvider.of<EventsBloc>(context).add(GetGalleryFiles(username: widget.session.userName));
+                              BlocProvider.of<EventsBloc>(context).add(GetGalleryFiles(username:'${widget.url}?user=${widget.session.userName}&page=api'));
                           }
                           if(state is GetGalleryFileLoading){
                             return Center(
