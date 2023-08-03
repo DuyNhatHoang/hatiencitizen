@@ -29,8 +29,8 @@ class ForgetPassPinCode extends StatefulWidget {
 class _ForgetPassPinCodeState extends State<ForgetPassPinCode>{
   Timer _timer;
   bool isResendCD = false;
-  int _resendCD = 300;
-  int _activecodeCD = 300;
+  int _resendCD = 30;
+  int _activecodeCD = 30;
   BuildContext authContext;
   BuildContext registerContext;
 
@@ -277,8 +277,8 @@ class _ForgetPassPinCodeState extends State<ForgetPassPinCode>{
                             textEditingController.clear();
                             showSnackBar(context, "Gửi lại mã thành công");
                             setState(() {
-                              _activecodeCD = 300;
-                              _resendCD = 300;
+                              _activecodeCD = 30;
+                              _resendCD = 30;
                               isResendCD = true;
                             });
                             startResendCD();
