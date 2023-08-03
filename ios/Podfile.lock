@@ -14,6 +14,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_keyboard_visibility (0.0.1):
     - Flutter
+  - flutter_webview_plugin (0.0.1):
+    - Flutter
   - "geolocator (5.3.2+2)":
     - Flutter
   - get_version (0.0.1):
@@ -55,11 +57,11 @@ PODS:
     - Flutter
   - native_device_orientation (0.0.1):
     - Flutter
-  - open_file (0.0.1):
-    - Flutter
   - package_info (0.0.1):
     - Flutter
   - path_provider (0.0.1):
+    - Flutter
+  - "permission_handler (5.1.0+2)":
     - Flutter
   - phone_number (0.6.2):
     - Flutter
@@ -86,6 +88,7 @@ DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - flutter_keyboard_visibility (from `.symlinks/plugins/flutter_keyboard_visibility/ios`)
+  - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
   - geolocator (from `.symlinks/plugins/geolocator/ios`)
   - get_version (from `.symlinks/plugins/get_version/ios`)
   - google_maps_flutter (from `.symlinks/plugins/google_maps_flutter/ios`)
@@ -95,9 +98,9 @@ DEPENDENCIES:
   - mapbox_gl (from `.symlinks/plugins/mapbox_gl/ios`)
   - multi_image_picker (from `.symlinks/plugins/multi_image_picker/ios`)
   - native_device_orientation (from `.symlinks/plugins/native_device_orientation/ios`)
-  - open_file (from `.symlinks/plugins/open_file/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - phone_number (from `.symlinks/plugins/phone_number/ios`)
   - share (from `.symlinks/plugins/share/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
@@ -130,6 +133,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_keyboard_visibility:
     :path: ".symlinks/plugins/flutter_keyboard_visibility/ios"
+  flutter_webview_plugin:
+    :path: ".symlinks/plugins/flutter_webview_plugin/ios"
   geolocator:
     :path: ".symlinks/plugins/geolocator/ios"
   get_version:
@@ -148,12 +153,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/multi_image_picker/ios"
   native_device_orientation:
     :path: ".symlinks/plugins/native_device_orientation/ios"
-  open_file:
-    :path: ".symlinks/plugins/open_file/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
+  permission_handler:
+    :path: ".symlinks/plugins/permission_handler/ios"
   phone_number:
     :path: ".symlinks/plugins/phone_number/ios"
   share:
@@ -178,6 +183,7 @@ SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
+  flutter_webview_plugin: ed9e8a6a96baf0c867e90e1bce2673913eeac694
   geolocator: f7622e0e7e2a24718285b73916d60c4a54b9f5b6
   get_version: 2bc18c4e26a265571662cab5d38f8b50dc8c1c77
   google_maps_flutter: c7f9c73576de1fbe152a227bfd6e6c4ae8088619
@@ -192,9 +198,9 @@ SPEC CHECKSUMS:
   MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
   multi_image_picker: 58577ab96d99b35c82d626db7d81906d14c2b667
   native_device_orientation: e24d00be281de72996640885d80e706142707660
-  open_file: 02eb5cb6b21264bd3a696876f5afbfb7ca4f4b7d
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   phone_number: b545f5b7d9711bec0f020c7df43ae5a82119f4ad
   PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96

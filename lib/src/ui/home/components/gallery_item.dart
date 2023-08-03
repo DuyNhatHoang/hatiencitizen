@@ -50,7 +50,7 @@ class _GalleryItemState extends State<GalleryItem> {
   }
 
   Widget getWidgetByExtention(){
-    if(item.file.contains("png") || item.file.contains("jpg")){
+    if(item.file.toLowerCase().contains("png") || item.file.toLowerCase().contains("jpg") || item.file.toLowerCase().contains("jpeg")){
       return Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         height: SizeConfig.screenWidth * 0.4,
@@ -104,7 +104,7 @@ class _GalleryItemState extends State<GalleryItem> {
         ),
       );
     } else
-    if(item.file.contains("mp4")){
+    if(item.file.toLowerCase().contains("mp4")){
       return FutureBuilder(
         future: getThumbnailfile(item.file),
         builder: (context, snapshot){

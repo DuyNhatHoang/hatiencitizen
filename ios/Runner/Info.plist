@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -22,40 +24,46 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>sms</string>
+		<string>tel</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Chúng tôi muốn sử dụng máy ảnh của bạn</string>
+	<key>NSLocalizedFailureReason</key>
+	<string>NSLocalizedFailureReason</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Chúng tôi muốn sử dụng vị trí của bạn khi mở ứng dụng để cung cấp vị trí cho sự kiện</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Chúng tôi muốn sử dụng vị trí của bạn khi ứng dụng chạy nền</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Chúng tôi muốn sử dụng vị trí của bạn khi mở ứng dụng để cung cấp vị trí cho sự kiện</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Chúng tôi muốn sử dụng hình ảnh của bạn để cung cấp cho sự kiện</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-    <string>Chúng tôi muốn sử dụng  bộ sưu tập của bạn để cung cấp hình ảnh cho sự kiện?</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>${PRODUCT_NAME} muốn sử dụng micro của bạn để thực hiện đàm thoại</string>
-	<key>NSLocalizedFailureReason</key>
-	<string>NSLocalizedFailureReason</string>
-	<key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-        <key>NSAllowsArbitraryLoadsInWebContent</key>
-        <true/>
-    </dict>
-	<key>NSAppTransportSecurity</key>
-    <dict>
-      <key>NSAllowsArbitraryLoads</key>
-      <true/>
-    </dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Chúng tôi muốn sử dụng  bộ sưu tập của bạn để cung cấp hình ảnh cho sự kiện?</string>
+	<key>NSCalendarsUsageDescription</key>
+    <string>Chúng tôi muốn sử dụng lịch của bạn</string>
+    <key>NSContactsUsageDescription</key>
+    <string>Chúng tôi muốn sử dụng danh bạ của bạn</string>
+    <key>NSMotionUsageDescription</key>
+    <string>$(PRODUCT_NAME) motion use.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>$(PRODUCT_NAME) muốn sử dụng nhận diện giọng nói</string>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>Chúng tôi muốn sử dụng apple music của bạn</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
