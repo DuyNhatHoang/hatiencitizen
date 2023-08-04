@@ -1,4 +1,5 @@
 import 'package:commons/commons.dart';
+import 'package:dio/dio.dart';
 import 'package:easy_text_input/easy_text_input.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +13,12 @@ import 'package:ha_tien_app/src/blocs/login/login_bloc.dart';
 import 'package:ha_tien_app/src/blocs/setting/bloc.dart';
 import 'package:ha_tien_app/src/blocs/text_bloc/text_bloc.dart';
 import 'package:ha_tien_app/src/repositories/local/pref/session_manager.dart';
+import 'package:ha_tien_app/src/repositories/models/Setting.dart';
 import 'package:ha_tien_app/src/repositories/models/auth/login.dart';
 import 'package:ha_tien_app/src/repositories/models/auth/session.dart';
 import 'package:ha_tien_app/src/repositories/models/employees/reset_password_request.dart';
 import 'package:ha_tien_app/src/repositories/models/users/update_user_request.dart';
+import 'package:ha_tien_app/src/repositories/remote/api_client.dart';
 import 'package:ha_tien_app/src/repositories/remote/auths/auth_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/employees/employees_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/setting/settingrepo.dart';
@@ -159,12 +162,13 @@ class _TKMainViewState extends State<TKMainView> {
                                 } else{
                                   await Permission.camera.request();
                                 }
+                                List<Setting> settings = await ApiClient(Dio()).getSettings("upfile-url");
                                 Navigator.of(context).push(
                                     MaterialPageRoute(builder: (context) => WebviewScaffold(
                                       // mediaPlaybackRequiresUserGesture: true,
                                       withJavascript: true,
                                       enableAppScheme: true,
-                                      url: "https://uploadfile1.bakco.com.vn/?user=${_session.userName}&page=upfile",
+                                      url: "${settings.first.value}/?user=${_session.userName}&page=upfile",
                                       appBar: new AppBar(
                                         title: new Text(AppLocalizations.of(context).gallery),
                                       ),

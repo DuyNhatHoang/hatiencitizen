@@ -7,7 +7,14 @@ main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
   Bloc.observer = SimpleBlocObserver();
-  runApp(App(key: appKey,));
+  var currentLocate = prefs.getString("language");
+  var locate = Locale('vi');
+  if(currentLocate != null){
+    if(currentLocate == "en"){
+      locate = Locale('en');
+    }
+  }
+  runApp(MyApp(locate: locate,));
 }
 
 class SimpleBlocObserver extends BlocObserver {

@@ -11,6 +11,7 @@ import 'package:ha_tien_app/src/ui/login/login_screen.dart';
 import 'package:ha_tien_app/src/ui/map/tracking_location_screen.dart';
 import 'package:ha_tien_app/src/ui/photo_view/photo_view_screen.dart';
 import 'package:ha_tien_app/src/ui/register/register_screen.dart';
+import 'package:intl/intl.dart';
 import '../main.dart';
 import 'ui/splash/splash_screen.dart';
 import 'utils/my_colors.dart';
@@ -18,23 +19,22 @@ import 'package:google_map_location_picker/generated/l10n.dart'
     as location_picker;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class App extends StatefulWidget {
-  const App({key});
+class MyApp extends StatefulWidget {
+  final  Locale locate;
 
+  const MyApp({Key key, this.locate}) : super(key: key);
   @override
-  State<App> createState() => _AppState();
+  _MyAppState createState() => _MyAppState();
 
-
+  static _MyAppState of(BuildContext context) => context.findAncestorStateOfType<_MyAppState>();
 }
 
-GlobalKey<_AppState> appKey = GlobalKey();
-class _AppState extends State<App> {
+class _MyAppState extends State<MyApp> {
+  Locale locate;
 
-  Locale _locale;
-
-  void setLocale(Locale newLocale) {
+  void setLocale(Locale value) {
     setState(() {
-      _locale = newLocale;
+      locate = value;
     });
   }
 
@@ -42,17 +42,13 @@ class _AppState extends State<App> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    var cl = prefs.get("language");
-    if(cl != null){
-      _locale = new Locale(cl);
-    }
+    locate = widget.locate;
   }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      locale: _locale,
+      locale: locate,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -134,4 +130,5 @@ class _AppState extends State<App> {
     );
   }
 }
+
 

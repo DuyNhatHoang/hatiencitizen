@@ -117,25 +117,26 @@ class _MainHomePageState extends State<MainHomePage> {
                     ],
                   ),
                   Row(
-                    // children: [
-                    //   Image.asset(
-                    //     "assets/images/global.png",
-                    //     color: Colors.black,
-                    //     width: 30,
-                    //   ),
-                      // DropDown(
-                      //   items: ["  Tiếng Việt", "  English"],
-                      //
-                      //   hint: prefs.get("language") == "en"
-                      //       ? Text("  " + "English")
-                      //       : Text("  " + "Tiếng Việt"),
-                      //   onChanged: (s) {
-                      //     appKey.currentState.setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
-                      //     prefs.setString(
-                      //         "language", s == "  Tiếng Việt" ? "vi" : "en");
-                      //   },
-                      // ),
-                    // ],
+                    children: [
+                      Image.asset(
+                        "assets/images/global.png",
+                        color: Colors.black,
+                        width: 30,
+                      ),
+                      DropDown(
+                        items: ["  Tiếng Việt", "  English"],
+
+                        hint: prefs.get("language") == "en"
+                            ? Text("  " + "English")
+                            : Text("  " + "Tiếng Việt"),
+                        onChanged: (s) {
+                          // appKey.currentState.setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
+                          MyApp.of(context).setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
+                          prefs.setString(
+                              "language", s == "  Tiếng Việt" ? "vi" : "en");
+                        },
+                      ),
+                    ],
                   )
                 ],
               ),

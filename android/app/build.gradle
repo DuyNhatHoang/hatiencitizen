@@ -48,8 +48,8 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
         applicationId "ha_tien_app.customer"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 37
-        versionName "1.0.37"
+        versionCode 39
+        versionName "1.0.39"
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }
