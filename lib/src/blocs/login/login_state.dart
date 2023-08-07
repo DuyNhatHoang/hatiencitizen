@@ -10,8 +10,11 @@ class LoginInitial extends LoginState {
 }
 
 class LoginSuccess extends LoginState {
+  final Login login;
+
+  LoginSuccess(this.login);
   @override
-  List<Object> get props => [];
+  List<Object> get props => [login];
 }
 
 class LoginFailure extends LoginState {

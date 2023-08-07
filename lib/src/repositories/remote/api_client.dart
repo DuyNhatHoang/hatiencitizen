@@ -265,7 +265,7 @@ abstract class ApiClient {
   Future<GalleryResponse> getUserGallery(String username);
 
   Future<void> postEventFiles(String eventLogId,  List<String> data);
-  @GET("api/Setting/Key/hotline")
+  @GET("api/Setting/Key")
   Future<Setting> getSetting(String key);
   @GET("api/Setting")
   Future<List<Setting>> getSettings(String groupId);

@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (state is RegisterSuccess) {
                       Navigator.pop(context);
                       showSnackBar(context, AppLocalizations.of(context).registerSuccess);
-                      Navigator.of(context).push(  MaterialPageRoute(builder: (context) => PhoneOptInsert(phoneNumber: _phoneNumber.text,)));
+                      // Navigator.of(context).push(  MaterialPageRoute(builder: (context) => PhoneOptInsert(phoneNumber: _phoneNumber.text,)));
                     } else if (state is RegisterFailure) {
                       showSnackBar(context, AppLocalizations.of(context).accountExisted);
                     }

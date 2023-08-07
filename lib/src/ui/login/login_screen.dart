@@ -10,6 +10,7 @@ import 'package:ha_tien_app/src/blocs/text_bloc/text_bloc.dart';
 import 'package:ha_tien_app/src/repositories/local/pref/session_manager.dart';
 import 'package:ha_tien_app/src/repositories/remote/auths/auth_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/auths/view_models/login_request.dart';
+import 'package:ha_tien_app/src/ui/base/dialog/showFailedDialog.dart';
 import 'package:ha_tien_app/src/ui/components/loading_indicator.dart';
 import 'package:ha_tien_app/src/ui/home/home_screen.dart';
 import 'package:ha_tien_app/src/ui/medican/test_result/phone_number_check.dart';
@@ -26,6 +27,8 @@ import 'package:nice_button/nice_button.dart';
 import 'package:signalr_core/signalr_core.dart';
 import 'component/input_user_name_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'otp_comfirm/otp_insert_phone.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = "/LoginScreen";
@@ -61,9 +64,19 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Scaffold(
             body: BlocConsumer<LoginBloc, LoginState>(
                 listener: (BuildContext context, state) {
-                  if (state is LoginSuccess) {          
-                    Navigator.of(context)
-                        .pushReplacementNamed(HomeScreen.routeName);
+                  if (state is LoginSuccess) {
+                    if(state.login.phoneNumberConfirmed){
+                      Navigator.of(context)
+                          .pushReplacementNamed(HomeScreen.routeName);
+                    } else {
+                      showInAuthorizedFailedDialog(context, title: "Tài khoản chưa xác thực", backtap: (){
+                        Navigator.of(context).pop();
+                      }, homepageTap: (){
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(  MaterialPageRoute(builder: (context) => PhoneOptInsert(phoneNumber: state.login.phoneAddress,)));
+                      });
+                    }
+
                     // Navigator.of(context).pushNamed(HomeScreen.routeName);
                   } else if (state is LoginFailure) {
                     showSnackBar(context, AppLocalizations.of(context).loginFailed);

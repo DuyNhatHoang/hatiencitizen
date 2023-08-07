@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:ha_tien_app/src/blocs/auth/auth_bloc.dart';
+import 'package:ha_tien_app/src/repositories/models/auth/login.dart';
 import 'package:ha_tien_app/src/repositories/models/auth/session.dart';
 import 'package:ha_tien_app/src/repositories/models/users/update_user_request.dart';
 import 'package:ha_tien_app/src/repositories/remote/auths/auth_repo.dart';
@@ -29,8 +30,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         var session = Session.fromLogin(data.data);
         session.password = event.request.password;
         session.authorizeDate = DateTime.now().toString();
-        authBloc.add(AuthLoggedIn(session));
-        yield LoginSuccess();
+        if(data.data.phoneNumberConfirmed){
+          authBloc.add(AuthLoggedIn(session));
+        }
+        yield LoginSuccess(data.data);
       } else {
         yield LoginFailure(data.getException);
       }

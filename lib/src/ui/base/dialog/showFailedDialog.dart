@@ -54,3 +54,55 @@ void showAppFailedDialog(BuildContext context, {String title = "", Function back
     },
   );
 }
+
+void showInAuthorizedFailedDialog(BuildContext context, {String title = "", Function backtap, Function homepageTap}) {
+  showDialog<void>(
+    context: context,
+    // false = user must tap button, true = tap outside dialog
+    builder: (BuildContext dialogContext) {
+      return AlertDialog(
+        title: Center(
+          child: Text(
+            '${title}',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+        ),
+        content: Container(
+          width: MediaQuery.of(context).size.width,
+          height:MediaQuery.of(context).size.height * 0.4,
+          child: Column(
+            children: [
+              Image.asset(
+                "assets/illustration/failed_inslutration.png",
+                height: MediaQuery.of(context).size.height * 0.2,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.04,
+              ),
+              BigButton(
+                title: "Xác thực ngay",
+                ontap: homepageTap,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              InkWell(
+                onTap: () {
+                  backtap();
+                },
+                child: Text(
+                  "Trở lại",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.blue),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}

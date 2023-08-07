@@ -457,22 +457,22 @@ class _BCSCViewState extends State<BCSCView> {
                         background: Colors.green.withOpacity(0.8),
                         onPressed: () => _onTapSend(),
                       ),
-                      KeyboardVisibilityBuilder(
-                          builder: (context, isKeyboardVisible) {
-                            double sheetHeight = MediaQuery.of(context).size.height;
-                            double keyboardHeight =
-                                MediaQuery.of(context).viewInsets.bottom;
-                            isKeyboardVisible
-                                ? scrollController.animateTo(sheetHeight * 0.3,
-                                duration: Duration(seconds: 1),
-                                curve: Curves.ease)
-                                : null;
-                            return isKeyboardVisible
-                                ? SizedBox(height: sheetHeight - keyboardHeight)
-                                : SizedBox(
-                              height: 0,
-                            );
-                          }),
+                      // KeyboardVisibilityBuilder(
+                      //     builder: (context, isKeyboardVisible) {
+                      //       double sheetHeight = MediaQuery.of(context).size.height;
+                      //       double keyboardHeight =
+                      //           MediaQuery.of(context).viewInsets.bottom;
+                      //       isKeyboardVisible
+                      //           ? scrollController.animateTo(sheetHeight * 0.3,
+                      //           duration: Duration(seconds: 1),
+                      //           curve: Curves.ease)
+                      //           : null;
+                      //       return isKeyboardVisible
+                      //           ? SizedBox(height: sheetHeight - keyboardHeight)
+                      //           : SizedBox(
+                      //         height: 0,
+                      //       );
+                      //     }),
                     ],
                   )
                 ],

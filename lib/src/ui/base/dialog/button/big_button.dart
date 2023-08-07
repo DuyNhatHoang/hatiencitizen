@@ -19,17 +19,17 @@ class _BigButtonState extends State<BigButton> {
         widget.ontap();
       },
       child: Container(
-        width: SizeConfig.screenWidth * 0.9,
-        padding: EdgeInsets.symmetric(vertical: SizeConfig.screenHeight * 0.02),
+        width: MediaQuery.of(context).size.width * 0.9,
+        padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.02),
         decoration: BoxDecoration(
             color: Colors.blue.shade600,
-            borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03)
+            borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width * 0.03)
         ),
         child: Center(
           child: Text(widget.title , style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
-              fontSize: SizeConfig.screenWidth * 0.04
+              fontSize: MediaQuery.of(context).size.width * 0.04
           ),),
         ),
       ),

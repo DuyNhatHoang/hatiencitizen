@@ -108,15 +108,6 @@ class _TKMainViewState extends State<TKMainView> {
         ],
         child: Stack(
           children: [
-            BlocConsumer<SettingBloc, SettingState>(builder: (c,s) {
-              _settingContext = c;
-              return Container();
-            }, listener: (context, state){
-              _settingContext = context;
-              if(state is Success){
-                launch("tel://${state.value}");
-              }
-            }),
             BlocConsumer<EmployeesBloc, EmployeesState>(
                 listener: (context, state) {
                   if (state is ResetPasswordFailure) {
@@ -177,12 +168,27 @@ class _TKMainViewState extends State<TKMainView> {
                               }),
                               // horiFunc("assets/icons/phone_icon.png", AppLocalizations.of(context).urgentCall, ontap: (){   BlocProvider.of<SettingBloc>(_settingContext).add(GetSettingE("hotline"));}),
                               horiFunc("assets/icons/lock.png", AppLocalizations.of(context).changePass, ontap: (){ onResetPasswordPressed(context);}),
-                              horiFunc("assets/icons/result.png", AppLocalizations.of(context).testResult,
-                                  ontap: (){
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => PhoneNumberCheck(session: widget.session,))
-                                    );
-                                  }),
+                              BlocBuilder<SettingBloc, SettingState>(builder: (c,s) {
+                                _settingContext = c;
+                                if(s is Success){
+                                  if (s.value == "off") {
+                                    return Container();
+                                  }
+                                  return horiFunc("assets/icons/result.png", AppLocalizations.of(context).testResult,
+                                      ontap: (){
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(builder: (context) => PhoneNumberCheck(session: widget.session,))
+                                        );
+                                      });
+                                }
+
+                                if(s is SettingInitial){
+                                  BlocProvider.of<SettingBloc>(_settingContext).add(GetSettingE("show-test-func"));
+                                  return Container();
+                                } else {
+                                  return Container();
+                                }
+                              }),
                               SizedBox(height: SizeConfig.screenHeight * 0.05,),
                               LogOutWidget()
                             ],
