@@ -7,6 +7,7 @@ import 'package:ha_tien_app/src/blocs/event_types/event_types_bloc.dart';
 import 'package:ha_tien_app/src/blocs/events/events_bloc.dart';
 import 'package:ha_tien_app/src/blocs/login/login_bloc.dart';
 import 'package:ha_tien_app/src/blocs/notifications/notification_bloc.dart';
+import 'package:ha_tien_app/src/blocs/setting/bloc.dart';
 import 'package:ha_tien_app/src/repositories/local/pref/session_manager.dart';
 import 'package:ha_tien_app/src/repositories/remote/auths/auth_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/event_logs/event_logs_repo.dart';
@@ -14,6 +15,7 @@ import 'package:ha_tien_app/src/repositories/remote/event_statuses/event_statuse
 import 'package:ha_tien_app/src/repositories/remote/event_types/event_types_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/events/events_repo.dart';
 import 'package:ha_tien_app/src/repositories/remote/notifications/notification_repo.dart';
+import 'package:ha_tien_app/src/repositories/remote/setting/settingrepo.dart';
 import 'package:ha_tien_app/src/ui/home/components/bcsc_view.dart';
 import 'package:ha_tien_app/src/ui/home/notification/notifi_page.dart';
 import 'package:ha_tien_app/src/ui/home/notification/notification_view.dart';
@@ -24,6 +26,7 @@ import 'package:ha_tien_app/src/utils/size_config.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 import 'package:ha_tien_app/src/app.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../main.dart';
 class MainHomePage extends StatefulWidget {
@@ -37,7 +40,7 @@ class MainHomePage extends StatefulWidget {
 
 class _MainHomePageState extends State<MainHomePage> {
   String titleText = "Chào ngày mới!";
-
+  BuildContext _settingContext;
 
   @override
   void initState() {
@@ -85,114 +88,151 @@ class _MainHomePageState extends State<MainHomePage> {
                 widget.session.getSession().accessToken)),
           ),
           BlocProvider(
+            create: (context) => SettingBloc(SettingRepo.withToken(
+                widget.session.getSession().accessToken)),
+          ),
+          BlocProvider(
               create: (context) => LoginBloc(
                   AuthRepo.withToken(widget.session.getSession().accessToken),
                   null)
                 ..add(GetUserInfoEvent())),
         ],
         child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          height: SizeConfig.screenHeight * 0.75,
+          child: Stack(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(getTitle(),
-                          style: TextStyle(
-                              fontSize: SizeConfig.screenWidth * 0.06,
-                              fontWeight: FontWeight.w600)),
-                      SizedBox(
-                        height: SizeConfig.screenHeight * 0.01,
-                      ),
-                      Text(
-                        " ${widget.session.getSession().fullName}",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                            fontSize: SizeConfig.screenWidth * 0.055),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/global.png",
-                        color: Colors.black,
-                        width: 30,
-                      ),
-                      DropDown(
-                        items: ["  Tiếng Việt", "  English"],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(getTitle(),
+                                style: TextStyle(
+                                    fontSize: SizeConfig.screenWidth * 0.06,
+                                    fontWeight: FontWeight.w600)),
+                            SizedBox(
+                              height: SizeConfig.screenHeight * 0.01,
+                            ),
+                            Text(
+                              " ${widget.session.getSession().fullName}",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black,
+                                  fontSize: SizeConfig.screenWidth * 0.055),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/global.png",
+                              color: Colors.black,
+                              width: 30,
+                            ),
+                            DropDown(
+                              items: ["  Tiếng Việt", "  English"],
 
-                        hint: prefs.get("language") == "en"
-                            ? Text("  " + "English")
-                            : Text("  " + "Tiếng Việt"),
-                        onChanged: (s) {
-                          // appKey.currentState.setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
-                          MyApp.of(context).setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
-                          prefs.setString(
-                              "language", s == "  Tiếng Việt" ? "vi" : "en");
-                        },
+                              hint: prefs.get("language") == "en"
+                                  ? Text("  " + "English")
+                                  : Text("  " + "Tiếng Việt"),
+                              onChanged: (s) {
+                                // appKey.currentState.setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
+                                MyApp.of(context).setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
+                                prefs.setString(
+                                    "language", s == "  Tiếng Việt" ? "vi" : "en");
+                              },
+                            ),
+                          ],
+                        ),
+
+                      ],
+                    ),
+                    SizedBox(height: SizeConfig.screenHeight * 0.05),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => NotificationPage(
+                                  session: widget.session,
+                                )));
+                          },
+                          child: cardItem(AppLocalizations.of(context).menuInfo,
+                              "assets/icons/thongtin-thongbao.png"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => BCSCView(
+                                  session: widget.session,
+                                )));
+                          },
+                          child: cardItem(AppLocalizations.of(context).menuRequest,
+                              "assets/icons/phananh-kiennghi.png"),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: SizeConfig.screenHeight * 0.05),
+                    Text(
+                      " ${AppLocalizations.of(context).otherService}",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                          fontSize: SizeConfig.screenWidth * 0.05),
+                    ),
+                    SizedBox(height: SizeConfig.screenHeight * 0.02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              // MaterialPageRoute(builder: (context) => MedicanPage(session: widget.session, phoneNumber: "0946706143", ))
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        PhoneNumberCheck(session: widget.session)));
+                          },
+                          child: cardItem(AppLocalizations.of(context).medical, "assets/icons/yte.png",
+                              bgColor: 0xFFF8F8F8, textColor: Colors.black),
+                        ),
+                        cardItem(AppLocalizations.of(context).menuInfo, "",
+                            bgColor: 0x00FFFFFF, bsColor: 0x00FFFFFF),
+                      ],
+                    ),
+
+                  ],
+                ),
+              ),
+              BlocConsumer<SettingBloc, SettingState>(builder: (c,s) {
+                _settingContext = c;
+                return Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: InkWell(
+                    onTap: (){
+                      BlocProvider.of<SettingBloc>(_settingContext).add(GetSettingE("hotline"));
+                    },
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.green,
+                      child: Center(
+                        child: Icon(Icons.phone, color: Colors.white,),
                       ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.05),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => NotificationPage(
-                                session: widget.session,
-                              )));
-                    },
-                    child: cardItem(AppLocalizations.of(context).menuInfo,
-                        "assets/icons/thongtin-thongbao.png"),
+                    ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => BCSCView(
-                                session: widget.session,
-                              )));
-                    },
-                    child: cardItem(AppLocalizations.of(context).menuRequest,
-                        "assets/icons/phananh-kiennghi.png"),
-                  )
-                ],
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.05),
-              Text(
-                " ${AppLocalizations.of(context).otherService}",
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                    fontSize: SizeConfig.screenWidth * 0.05),
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.02),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                          // MaterialPageRoute(builder: (context) => MedicanPage(session: widget.session, phoneNumber: "0946706143", ))
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  PhoneNumberCheck(session: widget.session)));
-                    },
-                    child: cardItem(AppLocalizations.of(context).medical, "assets/icons/yte.png",
-                        bgColor: 0xFFF8F8F8, textColor: Colors.black),
-                  ),
-                  cardItem(AppLocalizations.of(context).menuInfo, "",
-                      bgColor: 0x00FFFFFF, bsColor: 0x00FFFFFF),
-                ],
-              ),
+                );
+              }, listener: (context, state){
+                _settingContext = context;
+                if(state is Success){
+                  launch("tel://${state.value}");
+                }
+              }),
             ],
           ),
         ));

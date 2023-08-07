@@ -175,7 +175,7 @@ class _TKMainViewState extends State<TKMainView> {
                                     ),)
                                 );
                               }),
-                              horiFunc("assets/icons/phone_icon.png", AppLocalizations.of(context).urgentCall, ontap: (){   BlocProvider.of<SettingBloc>(_settingContext).add(GetSettingE("hotline"));}),
+                              // horiFunc("assets/icons/phone_icon.png", AppLocalizations.of(context).urgentCall, ontap: (){   BlocProvider.of<SettingBloc>(_settingContext).add(GetSettingE("hotline"));}),
                               horiFunc("assets/icons/lock.png", AppLocalizations.of(context).changePass, ontap: (){ onResetPasswordPressed(context);}),
                               horiFunc("assets/icons/result.png", AppLocalizations.of(context).testResult,
                                   ontap: (){
@@ -183,7 +183,7 @@ class _TKMainViewState extends State<TKMainView> {
                                         MaterialPageRoute(builder: (context) => PhoneNumberCheck(session: widget.session,))
                                     );
                                   }),
-                              SizedBox(height: SizeConfig.screenHeight * 0.1,),
+                              SizedBox(height: SizeConfig.screenHeight * 0.05,),
                               LogOutWidget()
                             ],
                           ),
