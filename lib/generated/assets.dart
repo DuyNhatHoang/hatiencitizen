@@ -10,6 +10,7 @@ class Assets {
   static const String iconsCamera = 'assets/icons/camera.jpg';
   static const String iconsCheck = 'assets/icons/check.png';
   static const String iconsCircle = 'assets/icons/circle.png';
+  static const String iconsEmergencyCall = 'assets/icons/emergency_call.png';
   static const String iconsEventt = 'assets/icons/eventt.jpg';
   static const String iconsExtend = 'assets/icons/extend.png';
   static const String iconsGallery = 'assets/icons/gallery.png';

@@ -98,141 +98,123 @@ class _MainHomePageState extends State<MainHomePage> {
                 ..add(GetUserInfoEvent())),
         ],
         child: Container(
-          height: SizeConfig.screenHeight * 0.75,
-          child: Stack(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(getTitle(),
-                                style: TextStyle(
-                                    fontSize: SizeConfig.screenWidth * 0.06,
-                                    fontWeight: FontWeight.w600)),
-                            SizedBox(
-                              height: SizeConfig.screenHeight * 0.01,
-                            ),
-                            Text(
-                              " ${widget.session.getSession().fullName}",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.black,
-                                  fontSize: SizeConfig.screenWidth * 0.055),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Image.asset(
-                              "assets/images/global.png",
-                              color: Colors.black,
-                              width: 30,
-                            ),
-                            DropDown(
-                              items: ["  Tiếng Việt", "  English"],
-
-                              hint: prefs.get("language") == "en"
-                                  ? Text("  " + "English")
-                                  : Text("  " + "Tiếng Việt"),
-                              onChanged: (s) {
-                                // appKey.currentState.setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
-                                MyApp.of(context).setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
-                                prefs.setString(
-                                    "language", s == "  Tiếng Việt" ? "vi" : "en");
-                              },
-                            ),
-                          ],
-                        ),
-
-                      ],
-                    ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.05),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => NotificationPage(
-                                  session: widget.session,
-                                )));
-                          },
-                          child: cardItem(AppLocalizations.of(context).menuInfo,
-                              "assets/icons/thongtin-thongbao.png"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => BCSCView(
-                                  session: widget.session,
-                                )));
-                          },
-                          child: cardItem(AppLocalizations.of(context).menuRequest,
-                              "assets/icons/phananh-kiennghi.png"),
-                        )
-                      ],
-                    ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.05),
-                    Text(
-                      " ${AppLocalizations.of(context).otherService}",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
-                          fontSize: SizeConfig.screenWidth * 0.05),
-                    ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.02),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(
-                              // MaterialPageRoute(builder: (context) => MedicanPage(session: widget.session, phoneNumber: "0946706143", ))
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        PhoneNumberCheck(session: widget.session)));
-                          },
-                          child: cardItem(AppLocalizations.of(context).medical, "assets/icons/yte.png",
-                              bgColor: 0xFFF8F8F8, textColor: Colors.black),
-                        ),
-                        cardItem(AppLocalizations.of(context).menuInfo, "",
-                            bgColor: 0x00FFFFFF, bsColor: 0x00FFFFFF),
-                      ],
-                    ),
-
-                  ],
-                ),
-              ),
-              BlocConsumer<SettingBloc, SettingState>(builder: (c,s) {
-                _settingContext = c;
-                return Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: InkWell(
-                    onTap: (){
-                      BlocProvider.of<SettingBloc>(_settingContext).add(GetSettingE("hotline"));
-                    },
-                    child: CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.green,
-                      child: Center(
-                        child: Icon(Icons.phone, color: Colors.white,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(getTitle(),
+                          style: TextStyle(
+                              fontSize: SizeConfig.screenWidth * 0.06,
+                              fontWeight: FontWeight.w600)),
+                      SizedBox(
+                        height: SizeConfig.screenHeight * 0.01,
                       ),
-                    ),
+                      Text(
+                        " ${widget.session.getSession().fullName}",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            fontSize: SizeConfig.screenWidth * 0.055),
+                      ),
+                    ],
                   ),
-                );
-              }, listener: (context, state){
-                _settingContext = context;
-                if(state is Success){
-                  launch("tel://${state.value}");
-                }
-              }),
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/images/global.png",
+                        color: Colors.black,
+                        width: 30,
+                      ),
+                      DropDown(
+                        items: ["  Tiếng Việt", "  English"],
+
+                        hint: prefs.get("language") == "en"
+                            ? Text("  " + "English")
+                            : Text("  " + "Tiếng Việt"),
+                        onChanged: (s) {
+                          // appKey.currentState.setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
+                          MyApp.of(context).setLocale(Locale(s == "  Tiếng Việt" ? "vi" : "en"));
+                          prefs.setString(
+                              "language", s == "  Tiếng Việt" ? "vi" : "en");
+                        },
+                      ),
+                    ],
+                  ),
+
+                ],
+              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.05),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => NotificationPage(
+                            session: widget.session,
+                          )));
+                    },
+                    child: cardItem(AppLocalizations.of(context).menuInfo,
+                        "assets/icons/thongtin-thongbao.png"),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => BCSCView(
+                            session: widget.session,
+                          )));
+                    },
+                    child: cardItem(AppLocalizations.of(context).menuRequest,
+                        "assets/icons/phananh-kiennghi.png"),
+                  )
+                ],
+              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.05),
+              Text(
+                " ${AppLocalizations.of(context).otherService}",
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                    fontSize: SizeConfig.screenWidth * 0.05),
+              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.02),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        // MaterialPageRoute(builder: (context) => MedicanPage(session: widget.session, phoneNumber: "0946706143", ))
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  PhoneNumberCheck(session: widget.session)));
+                    },
+                    child: cardItem(AppLocalizations.of(context).medical, "assets/icons/yte.png",
+                        bgColor: 0xFFF8F8F8, textColor: Colors.black),
+                  ),
+                  BlocConsumer<SettingBloc, SettingState>(builder: (c,s) {
+                    _settingContext = c;
+                    return  InkWell(
+                      onTap: () {
+                        BlocProvider.of<SettingBloc>(_settingContext).add(GetSettingE("hotline"));
+                      },
+                      child: cardItem(AppLocalizations.of(context).urgentCall, "assets/icons/emergency_call.png",
+                          bgColor: 0xFFF8F8F8, textColor: Colors.black),
+                    );
+                  }, listener: (context, state){
+                    _settingContext = context;
+                    if(state is Success){
+                      launch("tel://${state.value}");
+                    }
+                  }),
+                ],
+              ),
+
             ],
           ),
         ));
