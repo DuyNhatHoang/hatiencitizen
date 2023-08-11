@@ -155,60 +155,60 @@ class _DetailNotificationScreenState extends State<DetailNotificationScreen> {
                                 ),
                               ],
                             ),
-                            BlocConsumer<FrequentlyQuestionBloc,
-                                FrequentlyQuestionState>(
-                                listener: (context, state) {},
-                                builder: (context, state) {
-                                  if (state
-                                  is GetFrequentlyQuestionByNotificationIdIdSuccess) {
-                                    List<FrequentlyQuestion>
-                                    frequentlyQuestions = state.data;
-                                    return ExpansionTileCard(
-                                      key: cardB,
-                                      title: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            "Câu hỏi thường xuyên",
-                                          ),
-                                          Text(
-                                            frequentlyQuestions.length
-                                                .toString(),
-                                          ),
-                                        ],
-                                      ),
-                                      children: <Widget>[
-                                        Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                              bottom: 8.0,
-                                              left: 16.0,
-                                              right: 16.0,
-                                            ),
-                                            child: ListView.builder(
-                                                shrinkWrap: true,
-                                                itemCount: frequentlyQuestions
-                                                    .length,
-                                                itemBuilder:
-                                                    (context, index) {
-                                                  var item =
-                                                  frequentlyQuestions[
-                                                  index];
-                                                  return ListTile(
-                                                    title: Text(item.title),
-                                                    subtitle: Text(
-                                                        item.description),
-                                                  );
-                                                }),
-                                          ),
-                                        ),
-                                      ],
-                                    );
-                                  } else
-                                    return LoadingIndicator();
-                                })
+                            // BlocConsumer<FrequentlyQuestionBloc,
+                            //     FrequentlyQuestionState>(
+                            //     listener: (context, state) {},
+                            //     builder: (context, state) {
+                            //       if (state
+                            //       is GetFrequentlyQuestionByNotificationIdIdSuccess) {
+                            //         List<FrequentlyQuestion>
+                            //         frequentlyQuestions = state.data;
+                            //         return ExpansionTileCard(
+                            //           key: cardB,
+                            //           title: Row(
+                            //             mainAxisAlignment:
+                            //             MainAxisAlignment.spaceBetween,
+                            //             children: [
+                            //               Text(
+                            //                 "Câu hỏi thường xuyên",
+                            //               ),
+                            //               Text(
+                            //                 frequentlyQuestions.length
+                            //                     .toString(),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //           children: <Widget>[
+                            //             Align(
+                            //               alignment: Alignment.centerLeft,
+                            //               child: Padding(
+                            //                 padding: const EdgeInsets.only(
+                            //                   bottom: 8.0,
+                            //                   left: 16.0,
+                            //                   right: 16.0,
+                            //                 ),
+                            //                 child: ListView.builder(
+                            //                     shrinkWrap: true,
+                            //                     itemCount: frequentlyQuestions
+                            //                         .length,
+                            //                     itemBuilder:
+                            //                         (context, index) {
+                            //                       var item =
+                            //                       frequentlyQuestions[
+                            //                       index];
+                            //                       return ListTile(
+                            //                         title: Text(item.title),
+                            //                         subtitle: Text(
+                            //                             item.description),
+                            //                       );
+                            //                     }),
+                            //               ),
+                            //             ),
+                            //           ],
+                            //         );
+                            //       } else
+                            //         return LoadingIndicator();
+                            //     })
                           ],
                         ),
                       );

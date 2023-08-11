@@ -198,33 +198,36 @@ class _MainHomePageState extends State<MainHomePage> {
                   }, listener: (context, state){
                     _settingContext = context;
                     if(state is Success){
+                      launch("tel://${state.value}");
                     }
                   }),
-                  BlocBuilder<SettingBloc, SettingState>(builder: (c,s) {
-                    if(s is Success){
-                      if (s.value == "off") {
-                        return Container(  width: SizeConfig.screenWidth * 0.4, );
-                      }
-                      return  InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            // MaterialPageRoute(builder: (context) => MedicanPage(session: widget.session, phoneNumber: "0946706143", ))
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      PhoneNumberCheck(session: widget.session)));
-                        },
-                        child: cardItem(AppLocalizations.of(context).medical, "assets/icons/yte.png",
-                            bgColor: 0xFFF8F8F8, textColor: Colors.black),
-                      );
-                    }
-
-                    if(s is SettingInitial){
-                      BlocProvider.of<SettingBloc>(c).add(GetSettingE("show-test-func"));
-                      return Container();
-                    } else {
-                      return Container();
-                    }
-                  }),
+                  Container(  width: SizeConfig.screenWidth * 0.4, )
+                  // BlocBuilder<SettingBloc, SettingState>(builder: (c,s) {
+                  //   if(s is Success){
+                  //     if (s.value == "on") {
+                  //       return  InkWell(
+                  //         onTap: () {
+                  //           Navigator.of(context).push(
+                  //             // MaterialPageRoute(builder: (context) => MedicanPage(session: widget.session, phoneNumber: "0946706143", ))
+                  //               MaterialPageRoute(
+                  //                   builder: (context) =>
+                  //                       PhoneNumberCheck(session: widget.session)));
+                  //         },
+                  //         child: cardItem(AppLocalizations.of(context).medical, "assets/icons/yte.png",
+                  //             bgColor: 0xFFF8F8F8, textColor: Colors.black),
+                  //       );
+                  //
+                  //     }
+                  //     return Container(  width: SizeConfig.screenWidth * 0.4, );
+                  //   }
+                  //
+                  //   if(s is SettingInitial){
+                  //     BlocProvider.of<SettingBloc>(c).add(GetSettingE("show-test-func"));
+                  //     return Container();
+                  //   } else {
+                  //     return Container();
+                  //   }
+                  // }),
 
                 ],
               ),
