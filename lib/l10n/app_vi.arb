@@ -135,7 +135,7 @@
   "choose": "Chọn",
   "@choose": {
   },
-  "eventPlace": "Vị trí sự kiện",
+  "eventPlace": "Vị trí sự cố",
   "@eventPlace": {
   },
   "urgentCall": "Điện thọại khẩn cấp",
@@ -144,16 +144,16 @@
   "handlingOfficer": "Cán bộ xử lý",
   "@handlingOfficer": {
   },
-  "chooseEventType": "Chọn loại sự kiện",
+  "chooseEventType": "Chọn loại sự cố",
   "@chooseEventType": {
   },
-  "eventLocation": "Vị trí sự kiện",
+  "eventLocation": "Vị trí sự cố",
   "@eventLocation": {
   },
-  "eventContent": "Nhập nội dung thông tin sự kiện ",
+  "eventContent": "Nhập nội dung thông tin sự cố ",
   "@eventContent": {
   },
-  "createEvent": "Tạo sự kiện",
+  "createEvent": "Tạo sự cố",
   "@createEvent": {
   },
   "at": "Tại",
@@ -165,7 +165,7 @@
   "cancel": "Hủy",
   "@cancel": {
   },
-  "eventHistory": "Lịch sử cập nhật sự kiện",
+  "eventHistory": "Lịch sử",
   "@eventHistory": {
   },
   "logout": "Đăng xuất",
@@ -260,6 +260,21 @@
   },
   "accountValidate": "Xác thực tài khoản ",
   "@accountValidate": {
+  },
+  "createEventSuccess": "BÁO CÁO SỰ CỐ THÀNH CÔNG",
+  "@createEventSuccess": {
+  },
+  "chooseEventType": "Chọn loại sự cố",
+  "@chooseEventType": {
+  },
+  "chooseEventTypeCheck": "Vui lòng chọn loại sự cố",
+  "@chooseEventTypeCheck": {
+  },
+  "chooseLocationCheck": "Vui lòng chọn vị trí",
+  "@chooseLocationCheck": {
+  },
+  "chooseContentCheck": "Vui lòng chọn nhập nội dung",
+  "@chooseContentCheck": {
   },
   "helloWorld": "Hello World!",
   "@helloWorld": {

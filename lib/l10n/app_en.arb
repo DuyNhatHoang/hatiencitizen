@@ -264,6 +264,21 @@
   "accountValidate": "Account Validation ",
   "@accountValidate": {
   },
+  "createEventSuccess": "CREATE EVENT SUCCESS",
+  "@createEventSuccess": {
+  },
+  "chooseEventType": "Choose event type",
+  "@chooseEventType": {
+  },
+  "chooseEventTypeCheck": "Please choose the event type",
+  "@chooseEventTypeCheck": {
+  },
+  "chooseLocationCheck": "Please choose the location",
+  "@chooseLocationCheck": {
+  },
+  "chooseContentCheck": "Please input the content",
+  "@chooseContentCheck": {
+  },
   "helloWorld": "Hello World!",
   "@helloWorld": {
   }

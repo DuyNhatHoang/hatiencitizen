@@ -129,7 +129,7 @@ class _DetailEmployeeEventScreenState extends State<DetailEmployeeEventScreen>
                         if (state is GetEventLogsByEventIdFailure) {
                           showSnackBar(context, state.error.getErrorMessage());
                         } else if (state is CreateEventLogSuccess) {
-                          showSnackBar(context, "Đăng ký sự kiện thành công");
+                          showSnackBar(context, "Đăng ký sự cố thành công");
                           // commons.pop(context);
                           setState(() {});
                         }

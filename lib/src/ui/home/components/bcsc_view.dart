@@ -185,7 +185,7 @@ class _BCSCViewState extends State<BCSCView> {
               _clearAll();
               showAppSuccesDialog(context,
                   subTitle: "Trang chủ",
-                  title: "BÁO CÁO SỰ KIỆN THÀNH CÔNG",
+                  title: "BÁO CÁO SỰ CỐ THÀNH CÔNG",
                   mainTitle: "Lịch sử báo cáo", subTap: () {
                     commonns.pop(context);
                     commonns.pop(context);
@@ -201,9 +201,9 @@ class _BCSCViewState extends State<BCSCView> {
             _clearAll();
             commonns.pop(context);
             showAppSuccesDialog(context,
-                subTitle: "Trang chủ",
-                title: "BÁO CÁO SỰ KIỆN THÀNH CÔNG",
-                mainTitle: "Lịch sử báo cáo", subTap: () {
+                subTitle: "${AppLocalizations.of(context).homepage}",
+                title: "${AppLocalizations.of(context).createEventSuccess}",
+                mainTitle: "${AppLocalizations.of(context).eventHistory}", subTap: () {
                   commonns.pop(context);
                   commonns.pop(context);
                 }, mainTap: () {
@@ -516,7 +516,7 @@ class _BCSCViewState extends State<BCSCView> {
       set.add(commonns.SimpleItem(i++, element.name));
     });
     commonns.radioListDialog<commonns.SimpleItem>(
-        context, "Chọn loại sự kiện", set, (commonns.Data item) {
+        context, "${AppLocalizations.of(context).chooseEventType}", set, (commonns.Data item) {
       eventTypeId = eventTypes[item.id].id;
       _eventTypeController.text = "$item";
       print(item);
@@ -537,17 +537,17 @@ class _BCSCViewState extends State<BCSCView> {
     if (await connection.checkConnection() == false) return;
     if (eventTypeId == null || eventTypeId.isEmpty) {
       Scaffold.of(loaiSKContext)
-          .showSnackBar(SnackBar(content: Text("Vui lòng chọn loại sự kiện")));
+          .showSnackBar(SnackBar(content: Text("${AppLocalizations.of(context).chooseEventTypeCheck}")));
       return;
     }
     if (_pickedLocation == null) {
       Scaffold.of(loaiSKContext)
-          .showSnackBar(SnackBar(content: Text("Vui lòng chọn vị trí")));
+          .showSnackBar(SnackBar(content: Text("${AppLocalizations.of(context).chooseLocationCheck}")));
       return;
     }
     if (_contentController.text.isEmpty) {
       Scaffold.of(loaiSKContext).showSnackBar(
-          SnackBar(content: Text("Vui lòng nhập nội dung sự kiện")));
+          SnackBar(content: Text("${AppLocalizations.of(context).chooseContentCheck}")));
       return;
     }
 
